@@ -1,0 +1,32 @@
+ABC Technologies Pricing Guide
+
+Our software is available in three subscription plans.
+
+Basic Plan
+-------------
+Price: $10/month
+Users Allowed: Up to 5 users
+Support: Email Support
+Storage: 10 GB
+
+Professional Plan
+-------------------
+Price: $25/month
+Users Allowed: Up to 50 users
+Support: Priority Email Support
+Storage: 100 GB
+Features:
+- Analytics Dashboard
+- Team Collaboration
+- API Access
+
+Enterprise Plan
+-----------------
+Price: Contact Sales
+Users Allowed: Unlimited
+Support: Dedicated Account Manager
+Storage: Unlimited
+Features:
+- Custom Integrations
+- Premium Security
+- 24/7 Support

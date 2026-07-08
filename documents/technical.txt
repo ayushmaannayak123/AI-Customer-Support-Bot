@@ -1,0 +1,32 @@
+ABC Technologies Technical Manual
+
+Login Problems
+----------------
+
+Verify your username and password.
+
+Use the Forgot Password feature if necessary.
+
+Application Crash
+---------------------
+
+Restart the application.
+
+Ensure you are using the latest version.
+
+Clear temporary files before restarting.
+
+File Upload Issues
+---------------------
+
+Maximum upload size is 100 MB.
+
+Supported file types:
+PDF
+DOCX
+XLSX
+
+Internet Connectivity
+-------------------------
+
+Ensure your internet connection is stable before uploading files.

@@ -1,0 +1,29 @@
+Frequently Asked Questions
+
+Q: How do I reset my password?
+
+A: Click "Forgot Password" on the login page.
+
+------------------------------------
+
+Q: Where can I download invoices?
+
+A: Open Billing > Invoice History.
+
+------------------------------------
+
+Q: How do I contact support?
+
+A: Email support@abctech.com
+
+------------------------------------
+
+Q: Can I upgrade my subscription?
+
+A: Yes. Upgrades are available anytime.
+
+------------------------------------
+
+Q: How can I update my profile?
+
+A: Open Account Settings > Edit Profile.
