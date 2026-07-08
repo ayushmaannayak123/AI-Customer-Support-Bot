@@ -1,180 +1,208 @@
-# ABC Technologies - AI Customer Support Automation System
+# 🤖 AI Customer Support Automation System
 
-## Project Overview
-
-This project is an AI-powered Customer Support Automation System developed using **LangGraph**, **LangChain**, **Ollama**, **FAISS**, and **SQLite**.
-
-The system automates customer support by classifying customer queries, routing them to the appropriate support department, retrieving relevant information from company documents using Retrieval-Augmented Generation (RAG), maintaining customer conversation history, handling high-risk customer requests through human approval, and generating professional responses.
+An intelligent customer support assistant built with **LangGraph**, **LangChain**, **Ollama**, and **FAISS**. The system automates customer interactions by classifying queries, retrieving relevant information from a knowledge base using Retrieval-Augmented Generation (RAG), maintaining conversation history, and escalating sensitive requests for human approval.
 
 ---
 
-## Features
+## 🚀 Features
 
-* Intent Classification
-* Department-based Query Routing
-* Retrieval-Augmented Generation (RAG)
-* SQLite Conversation Memory
-* Human-in-the-Loop Approval
-* Supervisor Agent
-* AI Response Generation using Ollama (Qwen2.5:7B)
-* LangGraph Workflow
-
----
-
-## Technologies Used
-
-* Python
-* LangGraph
-* LangChain
-* Ollama
-* Qwen2.5:7B
-* FAISS
-* HuggingFace Embeddings
-* SQLite
+* **Intent Classification** – Automatically identifies the customer's request.
+* **Department Routing** – Routes queries to the appropriate support agent (Sales, Billing, Technical Support, or Account Management).
+* **Retrieval-Augmented Generation (RAG)** – Retrieves relevant information from company documents before generating responses.
+* **Conversation Memory** – Stores previous conversations using SQLite for contextual interactions.
+* **Human-in-the-Loop Approval** – Sensitive actions such as refunds or account closure require manual approval.
+* **Supervisor Agent** – Validates and coordinates responses before they are returned to the customer.
+* **Modular Multi-Agent Architecture** – Individual agents handle different business domains.
+* **Local LLM Inference** – Powered by Ollama running the Qwen2.5:7B model.
 
 ---
 
-## Project Structure
+## 🏗️ Architecture
 
-```
-CustomerSupportBot/
-
-│
-├── app.py
-├── graph.py
-├── state.py
-├── classifier.py
-├── rag.py
-├── memory.py
-├── approval.py
-├── supervisor.py
-├── llm.py
-│
-├── agents/
-│     ├── sales.py
-│     ├── technical.py
-│     ├── billing.py
-│     └── account.py
-│
-├── documents/
-│     ├── pricing.txt
-│     ├── technical.txt
-│     ├── faq.txt
-│     └── policy.txt
-│
-├── database/
-│     └── memory.db
-│
-├── README.md
-└── requirements.txt
-```
-
----
-
-## Workflow
+The application follows an agent-based workflow built using LangGraph.
 
 ```
 Customer Query
-        │
-        ▼
+      │
+      ▼
 Intent Classification
-        │
-        ▼
+      │
+      ▼
 Department Routing
-        │
-        ▼
-Retrieve Relevant Documents (RAG)
-        │
-        ▼
-Support Agent
-        │
-        ▼
+      │
+      ▼
+RAG Knowledge Retrieval
+      │
+      ▼
+Specialized Support Agent
+      │
+      ▼
 Human Approval (if required)
-        │
-        ▼
+      │
+      ▼
 Supervisor Agent
-        │
-        ▼
-Store Conversation (SQLite)
-        │
-        ▼
-Final Customer Response
+      │
+      ▼
+Conversation Memory (SQLite)
+      │
+      ▼
+Final Response
+```
+
+A graphical representation of the workflow is available in **Workflow diagram.png**.
+
+---
+
+## 🛠️ Technology Stack
+
+| Category             | Technologies                         |
+| -------------------- | ------------------------------------ |
+| Programming Language | Python                               |
+| Agent Framework      | LangGraph, LangChain                 |
+| Large Language Model | Ollama (Qwen2.5:7B)                  |
+| Vector Search        | FAISS                                |
+| Embeddings           | HuggingFace Embeddings               |
+| Database             | SQLite                               |
+| AI Technique         | Retrieval-Augmented Generation (RAG) |
+
+---
+
+## 📂 Project Structure
+
+```
+CustomerSupportBot/
+│
+├── agents/                 # Department-specific agents
+│   ├── sales.py
+│   ├── billing.py
+│   ├── technical.py
+│   └── account.py
+│
+├── documents/              # Knowledge base documents
+├── database/               # SQLite database created at runtime
+│
+├── app.py                  # Entry point
+├── graph.py                # LangGraph workflow
+├── classifier.py           # Intent classification
+├── rag.py                  # Retrieval-Augmented Generation
+├── supervisor.py           # Supervisor agent
+├── approval.py             # Human approval logic
+├── memory.py               # Conversation memory
+├── llm.py                  # LLM configuration
+├── state.py                # Shared workflow state
+│
+├── requirements.txt
+├── README.md
+└── Workflow diagram.png
 ```
 
 ---
 
-## Knowledge Base Documents
+## 📚 Knowledge Base
 
-The chatbot retrieves information from:
+The chatbot retrieves information from company documents before generating responses.
 
-* Pricing Guide
-* FAQ Document
-* Technical Manual
-* Company Policy
+Example knowledge sources include:
 
-using Retrieval-Augmented Generation (RAG).
+* Pricing information
+* Technical documentation
+* Frequently Asked Questions
+* Company policies
 
----
-
-## Human Approval
-
-The following requests require manual approval before a response is sent:
-
-* Refund Requests
-* Subscription Cancellation
-* Account Closure
-* Compensation Requests
-* Escalation to Management
+This allows the model to generate responses grounded in the available documentation rather than relying solely on the language model.
 
 ---
 
-## Memory
+## 👤 Human Approval Workflow
 
-Customer conversations are stored using SQLite.
+Certain customer requests are considered high-risk and require manual approval before an AI-generated response is returned.
+
+Examples include:
+
+* Refund requests
+* Subscription cancellation
+* Account deletion
+* Compensation requests
+* Escalation to management
+
+---
+
+## 🧠 Conversation Memory
+
+Customer conversations are stored using SQLite, allowing the assistant to recall previous interactions and maintain context across multiple queries.
 
 Example:
 
-Customer:
+**Customer**
 
-```
-My application crashes whenever I upload a file.
-```
+> My application crashes whenever I upload a file.
 
 Later:
 
-```
-What was my previous support issue?
-```
+> What was my previous support issue?
 
-The chatbot retrieves the previous issue from the SQLite database.
+The chatbot retrieves the earlier conversation from the database and incorporates it into its response.
 
 ---
 
-## Installation
+## ⚙️ Installation
 
-Install all required Python packages:
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd CustomerSupportBot
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment.
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+macOS/Linux:
+
+```bash
+source venv/bin/activate
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Install Ollama:
+### 4. Install Ollama
+
+Download and install Ollama from:
 
 https://ollama.com
 
-Download the model:
+Pull the required model:
 
 ```bash
 ollama pull qwen2.5:7b
 ```
 
-Start Ollama:
+Start the Ollama server:
 
 ```bash
 ollama serve
 ```
 
-Run the chatbot:
+### 5. Configure environment variables
+
+Create a `.env` file in the project root and add the required API keys or configuration variables if applicable.
+
+### 6. Run the application
 
 ```bash
 python app.py
@@ -182,55 +210,49 @@ python app.py
 
 ---
 
-## Sample Queries
+## 💬 Sample Queries
 
-Sales
+### Sales
 
-```
-What are the pricing plans available for your software?
-```
+> What pricing plans do you offer?
 
-Account
+### Technical Support
 
-```
-I forgot my account password.
-```
+> My application crashes whenever I upload a file.
 
-Technical Support
+### Billing
 
-```
-My application crashes whenever I upload a file.
-```
+> I would like a refund for my annual subscription.
 
-Billing
+### Account
 
-```
-I need a refund for my annual subscription.
-```
+> I forgot my password.
 
-Memory
+### Memory
 
-```
-What was my previous support issue?
-```
+> What was my previous support issue?
 
 ---
 
-## Output
+## 📈 Output
 
-The chatbot displays:
+For each query, the system provides:
 
-* Detected Department
-* Retrieved Knowledge Base Context
-* Approval Status
-* Final AI-generated Response
+* Detected intent
+* Assigned department
+* Retrieved document context
+* Approval status (when required)
+* AI-generated response
 
 ---
 
-## Future Improvements
+## 🔮 Future Improvements
 
-* Web Interface
-* Email Integration
-* CRM Integration
-* Ticket Generation
-* Multi-user Authentication
+* Web-based interface
+* Multi-user authentication
+* CRM integration
+* Email support
+* Ticket generation
+* Analytics dashboard
+* Cloud deployment
+* Containerization using Docker
