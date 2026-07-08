@@ -234,13 +234,3 @@ The chatbot displays:
 * CRM Integration
 * Ticket Generation
 * Multi-user Authentication
-
----
-
-## Author
-
-**Ayush Maan**
-
-B.Tech Computer Science Engineering
-
-VIT Chennai
