@@ -1,10 +1,10 @@
-# 🤖 AI Customer Support Automation System
+# AI Customer Support Automation System
 
 An intelligent customer support assistant built with **LangGraph**, **LangChain**, **Ollama**, and **FAISS**. The system automates customer interactions by classifying queries, retrieving relevant information from a knowledge base using Retrieval-Augmented Generation (RAG), maintaining conversation history, and escalating sensitive requests for human approval.
 
 ---
 
-## 🚀 Features
+## Features
 
 * **Intent Classification** – Automatically identifies the customer's request.
 * **Department Routing** – Routes queries to the appropriate support agent (Sales, Billing, Technical Support, or Account Management).
@@ -17,7 +17,7 @@ An intelligent customer support assistant built with **LangGraph**, **LangChain*
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The application follows an agent-based workflow built using LangGraph.
 
@@ -67,7 +67,7 @@ A graphical representation of the workflow is available in **Workflow diagram.pn
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 CustomerSupportBot/
@@ -98,7 +98,7 @@ CustomerSupportBot/
 
 ---
 
-## 📚 Knowledge Base
+## Knowledge Base
 
 The chatbot retrieves information from company documents before generating responses.
 
@@ -113,7 +113,7 @@ This allows the model to generate responses grounded in the available documentat
 
 ---
 
-## 👤 Human Approval Workflow
+## Human Approval Workflow
 
 Certain customer requests are considered high-risk and require manual approval before an AI-generated response is returned.
 
@@ -127,7 +127,7 @@ Examples include:
 
 ---
 
-## 🧠 Conversation Memory
+## Conversation Memory
 
 Customer conversations are stored using SQLite, allowing the assistant to recall previous interactions and maintain context across multiple queries.
 
@@ -145,7 +145,7 @@ The chatbot retrieves the earlier conversation from the database and incorporate
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### 1. Clone the repository
 
@@ -210,7 +210,7 @@ python app.py
 
 ---
 
-## 💬 Sample Queries
+## Sample Queries
 
 ### Sales
 
@@ -234,7 +234,7 @@ python app.py
 
 ---
 
-## 📈 Output
+## Output
 
 For each query, the system provides:
 
@@ -246,7 +246,7 @@ For each query, the system provides:
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 * Web-based interface
 * Multi-user authentication
